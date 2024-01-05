@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SpeakAndRead.Models.User>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-light rounded col-10 d-flex align-items-center justify-content-center">
+
+    <div class="text-justify">
+        <h1 style="text-align:center">Teachers</h1>
+    </div>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody style="background-color:white">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                        <div class="btn btn-primary">
+
+                            <a asp-action="Details" asp-route-id="@item.Id" style="color:whitesmoke">Details</a>
+
+                        </div>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

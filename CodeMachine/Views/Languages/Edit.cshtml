@@ -1,0 +1,33 @@
+﻿@model SpeakAndRead.Models.Language
+<div class="text-light rounded col-10 d-flex align-items-center justify-content-center">
+
+    <div class="text-justify">
+        <h1 style="text-align:center">Edit language</h1>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LanguageId" />
+            <div class="form-group">
+                <label asp-for="LanguageName" class="control-label"></label>
+                <input asp-for="LanguageName" class="form-control" />
+                <span asp-validation-for="LanguageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="btn btn-secondary">
+
+    <a asp-action="Index" style="color:whitesmoke">Back to list</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model SpeakAndRead.Models.Course
+
+<div class="text-light rounded col-10 d-flex align-items-center justify-content-center">
+
+    <div class="text-justify">
+        <h1 style="text-align:center">Create course</h1>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CourseName" class="text-light rounded col-10 d-flexl"></label>
+                <input asp-for="CourseName" class="form-control" />
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level" class="text-light rounded col-10 d-flexl"></label>
+                <select asp-for="Level" class="custom-select" asp-items="Html.GetEnumSelectList<SpeakAndRead.Models.Level>()">
+                    <option value="">Please select</option>
+                </select>
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="text-light rounded col-10 d-flexl"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="text-light rounded col-10 d-flexl"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LanguageId" class="text-light rounded col-10 d-flexl"></label>
+                <select asp-for="LanguageId" class ="form-control" asp-items="ViewBag.LanguageId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="btn btn-secondary">
+
+    <a asp-action="Index" style="color:whitesmoke">Back to list</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
